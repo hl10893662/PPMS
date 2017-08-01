@@ -1,0 +1,76 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/util    http://www.springframework.org/schema/util/spring-util.xsd
+	">
+	<description>多数据源配置--三明地区数据库查询配置 </description>
+	<context:property-placeholder location="classpath:dbconfig.properties" ignore-unresolvable="true"/>
+	<context:component-scan base-package="com.yj.jkgl.web.yjgl" />  
+    <!-- 数据源配置, 使用druid连接池 -->
+	<bean id="dataSourceMybatis" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${jdbc.url.jeecg}" />
+		<property name="username" value="${jdbc.username.jeecg}" />
+		<property name="password" value="${jdbc.password.jeecg}" />
+		<property name="filters" value="mergeStat" />
+		<!-- <property name="filters" value="stat" /> -->
+		<!-- 密码解密 -->
+		<!-- <property name="filters" value="config" />-->
+        <property name="maxActive" value="20"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="10"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 1 from dual"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+	</bean>
+	 
+    <bean id="sqlSessionFactoryMybatis" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceMybatis" />
+        <property name="mapperLocations">
+            <array>
+                <value>classpath*:mybatis/**/*Mapper.xml</value>
+            </array>
+        </property>
+    </bean>
+    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.jeecg"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryMybatis"/>
+        <property name="annotationClass" value="org.jeecgframework.core.annotation.persistence.MybatisAnnotation" />
+    </bean>
+    
+<!--     <bean id="sqlSessionMybatis" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+        <constructor-arg index="0" ref="sqlSessionFactoryMybatis"/>
+    </bean>
+
+    <aop:config>
+        <aop:pointcut id="appServiceMybatis" expression="execution(* com.yj.jkgl.web.yjgl.**.*(..))"/>
+        <aop:advisor advice-ref="txAdviceMybatis" pointcut-ref="appServiceMybatis"/>
+    </aop:config>
+
+    <tx:advice id="txAdviceMybatis" transaction-manager="transactionManagerMybatis">
+        <tx:attributes>
+            <tx:method name="select*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    <bean id="transactionManagerMybatis" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceMybatis" />
+    </bean> -->
+    
+    <!-- 使用annotation定义事务 -->
+   <!--  <tx:annotation-driven transaction-manager="transactionManagerMybatis" />  -->
+</beans>
