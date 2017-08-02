@@ -13626,3 +13626,22 @@ INSERT INTO `t_s_user_org` VALUES ('402881875b19f141015b19fe80e5002c', '4028ef81
 INSERT INTO `t_s_user_org` VALUES ('4028ef815500fa15015500fbc3290001', '8a8ab0b246dc81120146dc8181a10054', '8a8ab0b246dc81120146dc8180a20016');
 INSERT INTO `t_s_user_org` VALUES ('4028ef81550112c40155011505270001', '8a8ab0b246dc81120146dc8181950052', '8a8ab0b246dc81120146dc8180ba0017');
 INSERT INTO `t_s_user_org` VALUES ('4028ef81563ae5be01563ae92dc20003', '4028ef81563ae5be01563ae92d7f0002', '8a8ab0b246dc81120146dc8180a20016');
+
+-- ----------------------------
+-- Table structure for e_attence
+-- ----------------------------
+
+DROP TABLE IF EXISTS `e_attence`;
+
+CREATE TABLE `e_attence` (
+  `id` varchar(36) NOT NULL,
+  `fname` varchar(50) DEFAULT NULL COMMENT '人员',
+  `fdept` varchar(50) DEFAULT NULL COMMENT '部门',
+  `fchkintime` varchar(20) DEFAULT NULL COMMENT '上班时间',
+  `fchkouttime` varchar(50) DEFAULT NULL COMMENT '下班时间',
+  `fchkdate` datetime DEFAULT NULL COMMENT '考勤日期',
+  `fislate` varchar(20) DEFAULT NULL COMMENT '是否迟到',
+  `fovertime` varchar(50) DEFAULT NULL COMMENT '加班时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pk_attence` (`fname`,`fchkdate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
