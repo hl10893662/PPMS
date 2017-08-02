@@ -51,7 +51,7 @@
           <div class="center">
             <h1 id="id-text2" class="grey">
               <i class="ace-icon fa fa-leaf green"></i>
-               	预付费管理系统
+               	考勤查询
             </h1>
             <h4 class="blue" id="id-company-text"></h4>
           </div>
@@ -103,19 +103,19 @@
 
                 </div>
                 <div class="toolbar clearfix">
-                  <div style="float: right">
+                  <%-- <div style="float: right">
                     <a href="#"  class="forgot-password-link">
                     	  语言
                       <i class="ace-icon fa fa-arrow-right"></i>
                       <t:dictSelect id="langCode" field="langCode" typeGroupCode="lang" hasLabel="false" extendJson="{style:'padding:2px; width:80px;'}" defaultVal="zh-cn"></t:dictSelect>
                     </a>
-                  </div>
+                  </div> --%>
                 </div>
                 </form>
               </div>
             </div>
-            <div class="center"><h4 class="blue" id="id-company-text">&copy; XINO版权所有 v_0.1</h4></div>
-            <div class="navbar-fixed-top align-right">
+<!--             <div class="center"><h4 class="blue" id="id-company-text">&copy; XINO版权所有 v_0.1</h4></div>
+ -->            <div class="navbar-fixed-top align-right">
               <br />
               &nbsp;
               <a id="btn-login-dark" class="blue" href="#" onclick="darkStyle()">Dark</a>

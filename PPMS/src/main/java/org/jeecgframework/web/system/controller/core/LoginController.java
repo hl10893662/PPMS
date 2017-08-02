@@ -422,7 +422,7 @@ public class LoginController extends BaseController{
 			request.setAttribute("show", "0");
 		}
 
-		return new ModelAndView("main/home");
+		return new ModelAndView("com/jeecg/attence/attenceList");
 	}
 	
 	  /**
@@ -441,7 +441,7 @@ public class LoginController extends BaseController{
 			request.setAttribute("show", "0");
 		}
 
-		return new ModelAndView("main/acehome");
+		return new ModelAndView("com/jeecg/attence/attenceList");
 	}
 	/**
 	 * HPLUS首页跳转
@@ -459,7 +459,7 @@ public class LoginController extends BaseController{
 			request.setAttribute("show", "0");
 		}*/
 
-		return new ModelAndView("main/hplushome");
+		return new ModelAndView("com/jeecg/attence/attenceList");
 	}
 	/**
 	 * 无权限页面提示跳转

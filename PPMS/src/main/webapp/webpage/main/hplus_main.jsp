@@ -68,7 +68,7 @@
                         </ul>
                          //update-end--Author: chenj Date:20160726 for: TASK #1207 [改造]h+风格下，去掉logo下面的内容，迁移位置到右上角，主题位置 --%>
                     </div>
-                    <div class="logo-element">JEECG
+                    <div class="logo-element">ENO
                     </div>
                 </li>
 
@@ -85,7 +85,7 @@
                 <div class="navbar-header" style="height: 60px;"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                     <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                         <div class="form-group">
-                            <input type="text" placeholder="欢迎使用预付费管理系统 …" class="form-control" name="top-search" id="top-search">
+                            <input type="text" placeholder="欢迎使用…" class="form-control" name="top-search" id="top-search">
                         </div>
                     </form>
                 </div>
@@ -163,11 +163,11 @@
                     </li>
                     
                      
-                    <li class="dropdown hidden-xs">
+<!--                     <li class="dropdown hidden-xs">
                         <a class="right-sidebar-toggle" aria-expanded="false">
                             <i class="fa fa-tasks"></i> 主题
                         </a>
-                    </li>
+                    </li> -->
                       <li class="dropdown">
                      <a href="javascript:logout()" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
                      </li>
@@ -206,7 +206,7 @@
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="loginController.do?hplushome" frameborder="0" data-id="loginController.do?hplushome" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">&copy; <t:mutiLang langKey="system.version.number"/> <a href="http://www.jeecg.org/" target="_blank">jeecg</a>
+            <div class="pull-right"> <a href="http://172.18.168.100/login/Login.jsp?logintype=1" target="_blank">你懂的</a>
             </div>
         </div>
     </div>
@@ -460,7 +460,7 @@
 <!-- 弹出TAB -->
 <script type="text/javascript" src="plug-in/hplus/hplus-tab.js"></script>
 <!-- 在线聊天 -->
-<%@include file="/context/layui.jsp"%>
+<%-- <%@include file="/context/layui.jsp"%> --%>
 <script>
     function logout(){
         /*bootbox.confirm("<t:mutiLang langKey="common.exit.confirm"/>", function(result) {

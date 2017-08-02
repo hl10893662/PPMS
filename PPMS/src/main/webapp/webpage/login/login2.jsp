@@ -75,7 +75,7 @@
     </div>
 
     <div class="copyright ">
-    	<span>&copy; XINO 版权所有 <span class="tip"><a href="#" title=预付费管理系统>jeecg</a> (推荐使用IE8+,谷歌浏览器) 技术支持：:<a href="#" title=预付费管理系统>jeecg</a></span></span>
+    	<span>&copy; XINO 版权所有 <span class="tip"><a href="#" title=考勤查询>jeecg</a> (推荐使用IE8+,谷歌浏览器) 技术支持：:<a href="#" title=预付费管理系统>jeecg</a></span></span>
     </div>       
 </div>
 </form>
